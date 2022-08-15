@@ -1,1 +1,3 @@
-console.log(process.env);
+import YQZRequest from "./request";
+
+export default YQZRequest;

@@ -3,7 +3,7 @@ import App from "./App.vue";
 
 import globalRegister from "./global";
 
-import "@/service/request";
+import "@/service";
 
 const app = createApp(App);
 app.use(globalRegister);
