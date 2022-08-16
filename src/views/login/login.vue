@@ -1,9 +1,21 @@
 <template>
   <div class="login">
-    <el-button type="primary">214</el-button>
+    <login-panel></login-panel>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import LoginPanel from "./cpns/login-panel.vue";
+</script>
 
-<style scoped></style>
+<style scoped>
+  .login {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url(~@/assets/images/login-bg.svg);
+  }
+</style>

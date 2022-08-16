@@ -1,5 +1,11 @@
 import { App } from "vue";
 
+/* 样式初始化 */
+import "normalize.css";
+
+/* 自定义样式 */
+import "@/assets/css/index.less";
+
 /* vuex */
 import store from "@/store";
 
