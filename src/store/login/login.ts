@@ -55,10 +55,21 @@ const loginModule: Module<ILoginModule, IRootStore> = {
       // 3. 通过用户信息中的角色ID请求用户菜单
       const userMenusResult = await userMenusByRoleIDRequest(userInfo.role.id);
       const userMenus = userMenusResult.data;
-      console.log(userMenus);
+      commit("changeUserMenus", userMenus);
+      localCache.setCache("userMenus", userMenus);
 
       // 跳转到首页
       router.push("/main");
+    },
+    initLoginModuleAction({ commit }) {
+      const token = localCache.getCache("token");
+      token && commit("changeToken", token);
+
+      const userInfo = localCache.getCache("userInfo");
+      userInfo && commit("changeUserInfo", userInfo);
+
+      const userMenus = localCache.getCache("userMenus");
+      userMenus && commit("changeUserMenus", userMenus);
     },
   },
 };

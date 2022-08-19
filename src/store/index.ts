@@ -1,6 +1,6 @@
-import { createStore } from "vuex";
+import { createStore, Store, useStore as useVuexStore } from "vuex";
 
-import IRootStore from "./types";
+import IRootStore, { IStoreTypes } from "./types";
 
 import loginModule from "./login/login";
 
@@ -13,5 +13,11 @@ const store = createStore<IRootStore>({
   actions: {},
   modules: { loginModule },
 });
+
+store.dispatch("loginModule/initLoginModuleAction");
+
+export function useStore(): Store<IStoreTypes> {
+  return useVuexStore<IStoreTypes>();
+}
 
 export default store;
